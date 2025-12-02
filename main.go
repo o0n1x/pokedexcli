@@ -20,7 +20,7 @@ func main() {
 
 		txt := scanner.Text()
 
-		cleantxt := ui.CleanInput(txt)[0]
+		cleantxt := ui.CleanInput(txt)
 
 		ui.ExecuteCommand(cleantxt, nil)
 	}
