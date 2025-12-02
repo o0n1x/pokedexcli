@@ -60,6 +60,11 @@ func init() {
 			description: "inspect a caught pokemon",
 			callback:    commandInspect,
 		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "lists the pokemon caught",
+			callback:    commandPokedex,
+		},
 	}
 	defaultConfig = config{}
 	pokedex = make(map[string]Pokemon)
@@ -191,6 +196,14 @@ func commandInspect(_ *config, args []string) error {
 	fmt.Println("Types:")
 	for _, types := range pokemon.Types {
 		fmt.Printf("	- %s\n", types.Type.Name)
+	}
+	return nil
+}
+
+func commandPokedex(_ *config, _ []string) error {
+	fmt.Println("Your Pokedex:")
+	for key := range pokedex {
+		fmt.Println("	- ", key)
 	}
 	return nil
 }
